@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8001:8000"
+      - "5550:5555"
+    links:
+      - redis
+      - db
+    depends_on:
+      - redis
+      - db
+    command: python manage.py runserver 0.0.0.0:8000
+
+  redis:
+    image: "redis:alpine"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=docker
+      - TZ=GMT-3
+    
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
+    driver: local
