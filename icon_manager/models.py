@@ -1,9 +1,12 @@
+import string
+
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 class Icon(models.Model):
     name = models.CharField(max_length=64)
     tags = ArrayField(models.CharField(max_length=128), blank=True)
+    slug = models.SlugField(max_length=255, unique=True)
 
     class Meta:
         db_table = "icons"
@@ -29,14 +32,11 @@ class IconType(models.Model):
 
 class IconFile(models.Model):
     icon = models.ForeignKey(Icon, on_delete=models.CASCADE, related_name='files')
-    icon_file = models.FileField(upload_to='icons/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     file_extension = models.ForeignKey(IconType, on_delete=models.CASCADE, related_name='files')
+    icon_file = models.FileField(upload_to='icons/')
 
     class Meta:
         db_table = "files"
         verbose_name = "arquivo"
         verbose_name_plural = "arquivos"
-
-    def __str__(self):
-        return self.icon_file
