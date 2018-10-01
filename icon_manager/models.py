@@ -29,7 +29,7 @@ class IconType(models.Model):
 
 class IconFile(models.Model):
     icon = models.ForeignKey(Icon, on_delete=models.CASCADE, related_name='files')
-    icon_file = models.FileField(upload_to='/icons')
+    icon_file = models.FileField(upload_to='icons/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     file_extension = models.ForeignKey(IconType, on_delete=models.CASCADE, related_name='files')
 
