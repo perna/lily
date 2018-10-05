@@ -1,0 +1,11 @@
+{% extends 'web/base.html' %}
+
+{%block content %}
+    <h2>{{ icon.name }}</h2>
+    <h3><img src="{{ thumbnail.icon_file.url }}" alt="{{ icon.name }}"></h3>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        {% for f in files %}
+            <a class="btn btn-primary" href="{{ f.icon_file.url }}">{{ f.get_file_extension_display }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

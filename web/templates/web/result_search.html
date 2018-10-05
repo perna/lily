@@ -1,0 +1,13 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+    <ul>
+        {% for icon in icons %}
+        <li>
+            <a href="{{ icon.get_absolute_url }}" alt="{{ icon.name }}">
+                {{icon.name}} - {{ icon.files.file_extension.SVG }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
