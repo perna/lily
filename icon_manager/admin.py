@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Icon, IconFile, IconType
+from .models import Icon, IconFile
 
 class IconFileInline(admin.TabularInline):
     model = IconFile
@@ -7,14 +7,11 @@ class IconFileInline(admin.TabularInline):
     list_display = ['files__name']
 
 class IconAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'tags']
+    list_filter = ['name', 'files__file_extension']
     search_fields = ('name', 'tags')
     prepopulated_fields = {'slug': ('name',)}
     inlines = [ IconFileInline ]
 
 
-class IconTypeAdmin(admin.ModelAdmin):
-    pass
-
 admin.site.register(Icon, IconAdmin)
-admin.site.register(IconType, IconTypeAdmin)
