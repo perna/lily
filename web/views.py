@@ -4,23 +4,37 @@ from icon_manager.models import Icon, IconFile
 
 
 def index(request):
-    return render(request, "web/search_form.html")
-    
+    return render(request, "web/index.html")
+
 
 def search(request):
     term = request.GET["term"]
+    thumbnails = []
 
-    result = Icon.objects.filter(
-            Q(name__icontains=term) | Q(tags__overlap=[term]) 
+    icons = Icon.objects.prefetch_related('files')\
+        .all()\
+        .filter(
+            Q(name__icontains=term) | Q(tags__overlap=[term]),
         )
-        
-    context = {"icons": result}
+
+    for i in icons:
+        svg_file = i.files.get(file_extension='SVG')
+        thumbnails.append(svg_file.icon_file.url)
+
+    icon_list = zip(icons, thumbnails)
+
+    context = {
+        "icons": icon_list
+    }
+
+    print(icon_list)
 
     return render(request, "web/result_search.html", context)
 
 
 def details(request, slug):
     icon = get_object_or_404(Icon, slug=slug)
+
     icon_files = icon.files.all()
     thumbnail = icon.files.get(file_extension='SVG')
 

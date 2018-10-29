@@ -1,13 +1,16 @@
 {% extends 'web/base.html' %}
 
 {% block content %}
+    {% include 'web/search_form.html' %}
+
     <ul>
-        {% for icon in icons %}
-        <li>
-            <a href="{{ icon.get_absolute_url }}" alt="{{ icon.name }}">
-                {{icon.name}} - {{ icon.files.file_extension.SVG }}
-            </a>
-        </li>
-    {% endfor %}
+        {% for icon, thumbnail in icons %}
+            <li>
+                <a href="{{icon.get_absolute_url}}">
+                    <img src="{{ thumbnail }}" alt="">
+                    <span>{{icon.name}}</span>
+                </a>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
