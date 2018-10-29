@@ -67,3 +67,4 @@ target/
 web/static/web/node_modules
 lily/.env
 media/
+app.yaml

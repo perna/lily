@@ -8,7 +8,7 @@ class IconFileInline(admin.TabularInline):
 
 class IconAdmin(admin.ModelAdmin):
     list_display = ['name', 'tags']
-    list_filter = ['name', 'files__file_extension']
+    list_filter = ['files__file_extension']
     search_fields = ('name', 'tags')
     prepopulated_fields = {'slug': ('name',)}
     inlines = [ IconFileInline ]
