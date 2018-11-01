@@ -66,3 +66,12 @@ target/
 
 web/static/web/node_modules
 lily/.env
+
+#Google Cloud Platform
+app.yaml
+
+#Elastic Beanstalk
+.elasticbeanstalk/
+
+media/
+static/
