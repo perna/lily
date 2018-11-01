@@ -68,3 +68,8 @@ web/static/web/node_modules
 lily/.env
 media/
 app.yaml
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
