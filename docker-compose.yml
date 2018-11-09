@@ -29,6 +29,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
+      - POSTGRES_DB=podigger_ng
       - TZ=GMT-3
     ports:
       - "5432:5432"
