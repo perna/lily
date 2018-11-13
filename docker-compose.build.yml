@@ -2,7 +2,7 @@ version: '3'
 
 services:
   lily:
-    image: 639548217638.dkr.ecr.us-east-1.amazonaws.com/polem-webapp:latest
+    image: 639548217638.dkr.ecr.us-east-1.amazonaws.com/polem-webapp:gunicorn
     build:
       context: .
       dockerfile: Dockerfile
