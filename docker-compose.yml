@@ -15,22 +15,21 @@ services:
     depends_on:
       - redis
       - db
-    command: python manage.py runserver 0.0.0.0:8000
 
   redis:
-    image: "redis:alpine"
+    image: redis:4.0-alpine
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - '6379:6379'
 
   db:
-    image: postgres
+    image: postgres:10.5-alpine
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=docker
+      - POSTGRES_DB=podigger_ng
       - TZ=GMT-3
-    
     ports:
       - "5432:5432"
     volumes:
