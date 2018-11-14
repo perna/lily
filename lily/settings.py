@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'icon_manager.apps.IconManagerConfig',
     'web.apps.WebConfig',
 ]
@@ -118,3 +119,13 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# Storage
+
+#DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
+#STATICFILES_STORAGE = env('STATICFILES_STORAGE')
+
+#AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+#AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+#AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
