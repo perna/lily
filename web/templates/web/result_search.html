@@ -1,14 +1,12 @@
 {% extends 'web/base.html' %}
 
 {% block content %}
-    {% include 'web/search_form.html' %}
-
-    <ul>
+    <ul class="icon-result-list row justify-content-center">
         {% for icon, thumbnail in icons %}
-            <li>
-                <a href="{{icon.get_absolute_url}}">
-                    <img src="{{ thumbnail }}" alt="">
-                    <span>{{icon.name}}</span>
+            <li class="col-md-1">
+                <a class="icon-thumbnail" href="{{icon.get_absolute_url}}">
+                    <img src="{{ thumbnail }}" alt="{{icon.name}}">
+                    <span class="text-center">{{icon.name}}</span>
                 </a>
             </li>
         {% endfor %}
