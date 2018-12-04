@@ -64,11 +64,11 @@ target/
 .idea
 .vscode
 
-web/static/web/node_modules/
-lily/.env
+/web/static/web/node_modules/
+/lily/.env
 
-media/
-static/
+/media/
+/static/
 
 #Google Cloud Platform
 app.yaml
