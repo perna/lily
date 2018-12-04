@@ -1,17 +1,15 @@
-{% extends 'web/base.html' %}
+{% extends 'web/home.html' %}
+
+{% load static %}
 
 {% block content %}
-    <div class="jumbotron">
-        <h1>Lily</h1>
-        <p>
-            Eiiitaaa Mainhaaa!! Esse Lorem ipsum é só na sacanageeem!! E que abundância meu irmão viuu!! 
-            Assim você vai matar o papai. Só digo uma coisa, Domingo ela não vai! Danadaa!!
-            Tchannn!! Tchannn!! Tu du du pááá! Eu gostchu muitchu, heinn! danadinha! Mainhaa!
-            Agora use meu lorem ipsum ordinária!!! Olha o quibeee! rema, rema, ordinária!.
-        </p>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-4">
+            <img src="{% static 'web/img/logo.svg' %}" class="logo-home" alt="Pólen" />
+        </div>
     </div>
-    <div class="row justify-content-md-center">
-        <div class="col">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-6">
             {% include "web/search_form.html" %}
         </div>
     </div>    
