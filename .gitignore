@@ -64,7 +64,7 @@ target/
 .idea
 .vscode
 
-web/static/web/node_modules
+web/static/web/node_modules/
 lily/.env
 
 media/
