@@ -1,0 +1,19 @@
+.logo {
+    width: 6rem;
+}
+
+.icon-result-list {
+    list-style-type: none;
+    margin-top: 3rem;
+}
+
+.icon-thumbnail {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-thumbnail img {
+    width: 4rem;
+}
